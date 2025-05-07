@@ -1,67 +1,13 @@
 ---
 layout: default
-title: Branduvo – Tools for Smart Entrepreneurs
-description: Discover the best tools to grow your business online. Handpicked solutions for creators, freelancers, and small business owners.
+title: Home
 ---
-
-<section class="hero">
-  <div class="container">
-    <h1>Grow Smarter with the Right Tools</h1>
-    <p class="tagline">Handpicked business tools that save time, boost productivity, and grow your online brand.</p>
-    <a href="#tools" class="cta">Explore Featured Tools</a>
-  </div>
-</section>
-
-<section id="tools" class="tools-section">
-  <div class="container">
-    <h2>Featured Tools</h2>
-    <div class="tool-grid">
-      <div class="tool-card">
-        <img src="/assets/img/canva-logo.png" alt="Canva">
-        <h3>Canva</h3>
-        <p>Create stunning designs in minutes.</p>
-        <a href="/canva/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/freshbooks-logo.png" alt="FreshBooks">
-        <h3>FreshBooks</h3>
-        <p>Simplify your accounting and invoicing.</p>
-        <a href="/freshbooks/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/convertkit-logo.png" alt="ConvertKit">
-        <h3>ConvertKit</h3>
-        <p>Build and engage your email audience.</p>
-        <a href="/convertkit/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/calendly-logo.png" alt="Calendly">
-        <h3>Calendly</h3>
-        <p>Schedule meetings without the back-and-forth.</p>
-        <a href="/calendly/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/grammarly-logo.png" alt="Grammarly">
-        <h3>Grammarly</h3>
-        <p>Write better with smart suggestions.</p>
-        <a href="/grammarly/" class="button">Learn More</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="blog-preview">
-  <div class="container">
-    <h2>Latest Articles</h2>
-    <div class="posts">
-      {% for post in site.posts limit:3 %}
-        <article class="post">
-          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
-          <a href="{{ post.url }}" class="read-more">Read More</a>
-        </article>
-      {% endfor %}
-    </div>
-    <a href="/blog/" class="button">View All Posts</a>
-  </div>
-</section>
+<h1>Welcome to Branduvo</h1>
+<p>Your one-stop resource for the best productivity tools.</p>
+<ul>
+  <li><a href="/canva/">Canva</a></li>
+  <li><a href="/freshbooks/">FreshBooks</a></li>
+  <li><a href="/convertkit/">ConvertKit</a></li>
+  <li><a href="/calendly/">Calendly</a></li>
+  <li><a href="/grammarly/">Grammarly</a></li>
+</ul>
