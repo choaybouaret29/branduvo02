@@ -1,67 +1,73 @@
 ---
 layout: default
 title: Branduvo – Tools for Smart Entrepreneurs
-description: Discover the best tools to grow your business online. Handpicked solutions for creators, freelancers, and small business owners.
+description: Discover the best tools to grow your business online. Hand-picked solutions for creators, freelancers, and small business owners.
 ---
 
-<section class="hero">
+<!-- HERO ================================================== -->
+<section class="hero bg-light">
   <div class="container">
-    <h1>Grow Smarter with the Right Tools</h1>
-    <p class="tagline">Handpicked business tools that save time, boost productivity, and grow your online brand.</p>
-    <a href="#tools" class="cta">Explore Featured Tools</a>
+    <header class="hero-header">
+      <h1 class="hero-title">Grow Smarter with the Right Tools</h1>
+      <p class="hero-subtitle">Hand-picked business tools that save time, boost productivity, and scale your brand.</p>
+      <a href="#tools" class="btn btn-primary btn-lg">Explore Featured Tools</a>
+    </header>
+    <figure class="hero-graphic">
+      <img src="/assets/img/hero-graphic.svg" alt="Illustration of productivity tools">
+    </figure>
   </div>
 </section>
 
-<section id="tools" class="tools-section">
-  <div class="container">
-    <h2>Featured Tools</h2>
-    <div class="tool-grid">
-      <div class="tool-card">
-        <img src="/assets/img/canva-logo.png" alt="Canva">
-        <h3>Canva</h3>
-        <p>Create stunning designs in minutes.</p>
-        <a href="/canva/" class="button">Learn More</a>
+<!-- FEATURED TOOLS ========================================== -->
+<section id="tools" class="tools container">
+  <h2 class="section-title">Featured Tools</h2>
+  <div class="tool-grid">
+    {% assign tools = 
+       "canva,FreshBooks,ConvertKit,Calendly,Grammarly" | split: "," %}
+    {% for tool in tools %}
+      <div class="card tool-card">
+        <img class="card-img-top" 
+             src="/assets/img/{{ tool | downcase }}-logo.png" 
+             alt="{{ tool }} logo">
+        <div class="card-body">
+          <h3 class="card-title">{{ tool }}</h3>
+          <p class="card-text">
+            {% case tool %}
+            {% when "Canva" %}Create stunning graphics in minutes.
+            {% when "FreshBooks" %}Simplify invoicing and bookkeeping.
+            {% when "ConvertKit" %}Grow and engage your email audience.
+            {% when "Calendly" %}Book meetings without the back-and-forth.
+            {% when "Grammarly" %}Write better with AI-powered suggestions.
+            {% endcase %}
+          </p>
+          <a href="/{{ tool | downcase }}/" class="btn btn-outline-primary">
+            Learn More
+          </a>
+        </div>
       </div>
-      <div class="tool-card">
-        <img src="/assets/img/freshbooks-logo.png" alt="FreshBooks">
-        <h3>FreshBooks</h3>
-        <p>Simplify your accounting and invoicing.</p>
-        <a href="/freshbooks/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/convertkit-logo.png" alt="ConvertKit">
-        <h3>ConvertKit</h3>
-        <p>Build and engage your email audience.</p>
-        <a href="/convertkit/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/calendly-logo.png" alt="Calendly">
-        <h3>Calendly</h3>
-        <p>Schedule meetings without the back-and-forth.</p>
-        <a href="/calendly/" class="button">Learn More</a>
-      </div>
-      <div class="tool-card">
-        <img src="/assets/img/grammarly-logo.png" alt="Grammarly">
-        <h3>Grammarly</h3>
-        <p>Write better with smart suggestions.</p>
-        <a href="/grammarly/" class="button">Learn More</a>
-      </div>
-    </div>
+    {% endfor %}
   </div>
 </section>
 
-<section class="blog-preview">
+<!-- LATEST ARTICLES ========================================== -->
+<section class="blog-preview bg-light">
   <div class="container">
-    <h2>Latest Articles</h2>
-    <div class="posts">
+    <h2 class="section-title">Latest Articles</h2>
+    <div class="posts-grid">
       {% for post in site.posts limit:3 %}
-        <article class="post">
-          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
-          <a href="{{ post.url }}" class="read-more">Read More</a>
+        <article class="post-card">
+          {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.title }}">
+          {% endif %}
+          <div class="post-content">
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+            <a href="{{ post.url }}" class="read-more">Read More →</a>
+          </div>
         </article>
       {% endfor %}
     </div>
-    <a href="/blog/" class="button">View All Posts</a>
+    <a href="/blog/" class="btn btn-primary">View All Posts</a>
   </div>
 </section>
+
