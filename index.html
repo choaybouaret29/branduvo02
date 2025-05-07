@@ -1,56 +1,71 @@
 ---
 layout: default
 title: Branduvo – Tools for Smart Entrepreneurs
-description: Discover the best tools to grow your business online. Hand-picked solutions for creators, freelancers, and small business owners.
+description: Hand-picked, in-depth guides and reviews of the best productivity tools: Canva, FreshBooks, ConvertKit, Calendly & Grammarly.
 ---
 
 <!-- HERO ================================================== -->
-<section class="hero bg-light">
-  <div class="container">
-    <header class="hero-header">
-      <h1 class="hero-title">Grow Smarter with the Right Tools</h1>
-      <p class="hero-subtitle">Hand-picked business tools that save time, boost productivity, and scale your brand.</p>
-      <a href="#tools" class="btn btn-primary btn-lg">Explore Featured Tools</a>
-    </header>
-    <figure class="hero-graphic">
-      <img src="/assets/img/hero-graphic.svg" alt="Illustration of productivity tools">
-    </figure>
+<section class="hero" style="background:url('/assets/img/hero-bg.jpg') center/cover no-repeat;">
+  <div class="container hero-inner">
+    <h1>Empower Your Business with the Right Tools</h1>
+    <p class="lead">In-depth guides, real-world case studies, and hand-picked reviews to help you choose—and profit from—the best SaaS tools.</p>
+    <a href="#tools" class="btn btn-primary btn-lg">Browse Featured Tools</a>
   </div>
 </section>
 
-<!-- FEATURED TOOLS ========================================== -->
-<section id="tools" class="tools container">
-  <h2 class="section-title">Featured Tools</h2>
-  <div class="tool-grid">
-    {% assign tools = 
-       "canva,FreshBooks,ConvertKit,Calendly,Grammarly" | split: "," %}
-    {% for tool in tools %}
-      <div class="card tool-card">
-        <img class="card-img-top" 
-             src="/assets/img/{{ tool | downcase }}-logo.png" 
-             alt="{{ tool }} logo">
-        <div class="card-body">
-          <h3 class="card-title">{{ tool }}</h3>
-          <p class="card-text">
-            {% case tool %}
-            {% when "Canva" %}Create stunning graphics in minutes.
-            {% when "FreshBooks" %}Simplify invoicing and bookkeeping.
-            {% when "ConvertKit" %}Grow and engage your email audience.
-            {% when "Calendly" %}Book meetings without the back-and-forth.
-            {% when "Grammarly" %}Write better with AI-powered suggestions.
-            {% endcase %}
-          </p>
-          <a href="/{{ tool | downcase }}/" class="btn btn-outline-primary">
-            Learn More
-          </a>
+<!-- FEATURE HIGHLIGHTS ================================== -->
+<section id="tools" class="section tools">
+  <div class="container">
+    <h2 class="section-title">Featured Tools</h2>
+    <p class="section-subtitle">Our top picks for entrepreneurs, freelancers, and small teams.</p>
+    <div class="tool-grid">
+      {% assign tools = 
+        "canva,FreshBooks,ConvertKit,Calendly,Grammarly" | split: "," %}
+      {% for tool in tools %}
+        <div class="card tool-card">
+          <img src="/assets/img/{{ tool | downcase }}-logo.png" alt="{{ tool }} logo" class="card-img">
+          <div class="card-body">
+            <h3>{{ tool }}</h3>
+            <p>
+              {% case tool %}
+              {% when "Canva" %}Design like a pro—even if you’re not one.
+              {% when "FreshBooks" %}Invoice, track time, and get paid faster.
+              {% when "ConvertKit" %}Grow your email list with ease.
+              {% when "Calendly" %}Never chase attendees—automate your scheduling.
+              {% when "Grammarly" %}Write clear, error-free copy in seconds.
+              {% endcase %}
+            </p>
+            <a href="/{{ tool | downcase }}/" class="btn btn-outline-primary">Learn More</a>
+          </div>
         </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES / TESTIMONIALS ========================== -->
+<section class="section testimonials bg-light">
+  <div class="container">
+    <h2 class="section-title">Real-World Success Stories</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <blockquote>
+          “Since switching to FreshBooks, invoicing takes me 80% less time—and I get paid 2 days faster!”
+        </blockquote>
+        <p class="author">— Sara, Freelance Designer</p>
       </div>
-    {% endfor %}
+      <div class="testimonial">
+        <blockquote>
+          “My newsletter open-rate jumped from 12% to 30% with ConvertKit’s automation.”
+        </blockquote>
+        <p class="author">— Jamal, Content Creator</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- LATEST ARTICLES ========================================== -->
-<section class="blog-preview bg-light">
+<section class="section blog-preview">
   <div class="container">
     <h2 class="section-title">Latest Articles</h2>
     <div class="posts-grid">
@@ -58,16 +73,29 @@ description: Discover the best tools to grow your business online. Hand-picked s
         <article class="post-card">
           {% if post.image %}
             <img src="{{ post.image }}" alt="{{ post.title }}">
+          {% else %}
+            <img src="/assets/img/blog-placeholder.jpg" alt="Blog post">
           {% endif %}
-          <div class="post-content">
+          <div class="post-body">
             <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
             <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-            <a href="{{ post.url }}" class="read-more">Read More →</a>
+            <a href="{{ post.url }}" class="read-more">Continue Reading →</a>
           </div>
         </article>
       {% endfor %}
     </div>
-    <a href="/blog/" class="btn btn-primary">View All Posts</a>
+    <a href="/blog/" class="btn btn-primary">View All Articles</a>
   </div>
 </section>
 
+<!-- NEWSLETTER CTA ========================================== -->
+<section class="section newsletter bg-primary text-white">
+  <div class="container newsletter-inner">
+    <h2>Stay Ahead of the Curve</h2>
+    <p>Join 5,000+ subscribers receiving our exclusive tool-tips and case studies every week.</p>
+    <form action="https://your-convertkit-form-endpoint" method="post" class="newsletter-form">
+      <input type="email" name="email_address" placeholder="Your email address" required>
+      <button type="submit" class="btn btn-light">Subscribe Now</button>
+    </form>
+  </div>
+</section>
